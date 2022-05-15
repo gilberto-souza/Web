@@ -1,5 +1,4 @@
-package com.Models;
-
+package com.exercicio2.Exercicio2.Models;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
@@ -15,22 +14,22 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "turma")
-public class ModelTurma {
+@Table(name = "professor")
+public class ModelAluno {
+
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long matricula;
 
-    @Column(name = "disciplina")
-    private String disciplina;
+    @Column(name = "nome")
+    private String nome;
 
-    @Column(name = "sala")
-    private String sala;
+    @Column(name = "email")
+    private String email;
 
-    public ModelTurma(String nome, String sala) {
-        this.disciplina = disciplina;
-        this.sala = sala;
+    public ModelAluno(String nome, String email) {
+        this.nome = nome;
+        this.email = email;
     }
-    
 }

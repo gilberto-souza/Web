@@ -1,6 +1,6 @@
 package com.exercicio2.Exercicio2.Controllers;
 
-import com.Models.ModelProfessor;
+import com.exercicio2.Exercicio2.Models.ModelProfessor;
 
 import org.springframework.web.bind.annotation.*;
 
