@@ -9,15 +9,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ModelAluno {
+public class ModelProfessor {
     
     private String matricula;
     private String nome;
     private String email;
+    private String formacao;
 
-    public ModelAluno(String nome, String email) {
+    public ModelProfessor(String nome, String email, String formacao) {
         this.matricula = UUID.randomUUID().toString();
         this.nome = nome;
         this.email = email;
+        this.formacao = formacao;
     }
+    
 }
