@@ -21,7 +21,7 @@ public class ModelProfessor {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long matricula;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
@@ -32,9 +32,13 @@ public class ModelProfessor {
     @Column(name = "formacao")
     private String formacao;
 
-    public ModelProfessor(String nome, String email, String formacao) {
+    @Column(name = "matricula")
+    private Long matricula;
+
+    public ModelProfessor(String nome, String email, String formacao, Long matricula) {
         this.nome = nome;
         this.email = email;
         this.formacao = formacao;
+        this.matricula = matricula;
     }
 }

@@ -25,6 +25,20 @@ public class ControllerProfessor {
         return professorRepository.findAll();
     }
 
+    @GetMapping("/{matricula}")
+    @ApiOperation(value = "Busca um Professor pela sua matricula")
+    public ModelProfessor getProfessorByMatricula (@PathVariable("matricula") Long matricula) {
+        List<ModelProfessor> profs = professorRepository.findAll();
+        ModelProfessor professor = new ModelProfessor();
+        for(ModelProfessor prof : profs){
+            if (prof.getMatricula() == matricula){
+                professor = prof;
+                return prof;
+            }
+        }
+        return professor;
+    }
+
     @PostMapping
     @ApiOperation(value = "Adicionar um Professor")
     public ModelProfessor createProfessor(@RequestBody ModelProfessor prof) {

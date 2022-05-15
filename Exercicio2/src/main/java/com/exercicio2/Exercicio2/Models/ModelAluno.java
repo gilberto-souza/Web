@@ -28,8 +28,9 @@ public class ModelAluno {
     @Column(name = "email")
     private String email;
 
-    public ModelAluno(String nome, String email) {
+    public ModelAluno(String nome, String email,long matricula) {
         this.nome = nome;
         this.email = email;
+        this.matricula = matricula;
     }
 }
