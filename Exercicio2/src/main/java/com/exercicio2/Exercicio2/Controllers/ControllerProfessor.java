@@ -1,12 +1,21 @@
 package com.exercicio2.Exercicio2.Controllers;
+
+import com.Models.ModelProfessor;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Professor")
+@RequestMapping("/professor")
 public class ControllerProfessor {
  
     @GetMapping
     public String getControllerProfessor() {
-        return "oi";
+        return "Professor";
     }
+
+    @PostMapping
+    public ModelProfessor CreateProfessor(@RequestBody ModelProfessor professor) {
+        ModelProfessor newProfessor = new ModelProfessor();
+        return newProfessor;
+    }  
 }
