@@ -57,4 +57,28 @@ public class ControllerProfessor {
             return null;
         }
     }
+
+    @DeleteMapping("/{id}")
+    @ApiOperation(value = "Exclui um professor a partir do seu id")
+    public void deleteProfessor(@PathVariable Long id) {
+        professorRepository.delete(professorRepository.findById(id).get());
+    }
+
+    @PutMapping("/{id}")
+    @ApiOperation(value = "Atualiza um Professor a partir do seu identificador")
+    public ModelProfessor updateProfessor(@PathVariable("id") Long id, @RequestBody ModelProfessor prof) {
+        List<ModelProfessor> profs = professorRepository.findAll();
+        boolean veri = true;
+        for(ModelProfessor professor : profs){
+            if (professor.getMatricula() == prof.getMatricula() || professor.getEmail() == prof.getEmail() && professor.getId()!=prof.getId()){
+                veri = false;
+            }
+        }
+        if (veri){
+            return professorRepository.save(prof);
+        }
+        else {
+            return null;
+        }
+    }
 }
