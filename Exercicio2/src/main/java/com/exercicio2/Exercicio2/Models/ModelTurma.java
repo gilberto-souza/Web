@@ -28,9 +28,13 @@ public class ModelTurma {
     @Column(name = "sala")
     private String sala;
 
-    public ModelTurma(String disciplina, String sala) {
+    @Column(name = "matriculaProf")
+    private Long matriculaProf;
+
+    public ModelTurma(String disciplina, String sala, Long matriculaProf) {
         this.disciplina = disciplina;
         this.sala = sala;
+        this.matriculaProf = matriculaProf;
     }
     
 }
