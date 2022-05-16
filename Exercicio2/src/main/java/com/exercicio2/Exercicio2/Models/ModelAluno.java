@@ -20,13 +20,16 @@ public class ModelAluno {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long matricula;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "matricula")
+    private Long matricula;
 
     public ModelAluno(String nome, String email,long matricula) {
         this.nome = nome;
