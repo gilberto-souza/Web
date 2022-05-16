@@ -42,6 +42,19 @@ public class ControllerProfessor {
     @PostMapping
     @ApiOperation(value = "Adicionar um Professor")
     public ModelProfessor createProfessor(@RequestBody ModelProfessor prof) {
-        return professorRepository.save(prof);
+        
+        List<ModelProfessor> profs = professorRepository.findAll();
+        boolean veri = true;
+        for(ModelProfessor professor : profs){
+            if (professor.getMatricula() == prof.getMatricula() || professor.getEmail() == prof.getEmail()){
+                veri = false;
+            }
+        }
+        if (veri){
+            return professorRepository.save(prof);
+        }
+        else {
+            return null;
+        }
     }
 }
