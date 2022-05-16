@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "professor")
+@Table(name = "aluno")
 public class ModelAluno {
 
     
@@ -31,9 +31,13 @@ public class ModelAluno {
     @Column(name = "matricula")
     private Long matricula;
 
-    public ModelAluno(String nome, String email,long matricula) {
+    @Column(name = "idTurma")
+    private Long idTurma;
+
+    public ModelAluno(String nome, String email,long matricula,long idTurma) {
         this.nome = nome;
         this.email = email;
         this.matricula = matricula;
+        this.idTurma = idTurma;
     }
 }
