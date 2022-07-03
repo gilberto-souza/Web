@@ -1,4 +1,4 @@
-package com.exercicio2.Exercicio2.models;
+package com.exercicio2.Exercicio2.Models;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
