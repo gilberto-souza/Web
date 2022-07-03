@@ -84,25 +84,4 @@ public class ControllerAluno {
             return null;
         }
     }    
-
-    @PutMapping("/{id}/matricularAluno/{alunoid}")
-    @ApiOperation(value = "Atualiza uma turma a partir do seu identificador")
-    public ModelAluno matricularAluno(@PathVariable("id") Long id, @PathVariable("alunoid") Long alunoid) {
-        List<ModelAluno> alunos = alunoRepository.findAll();
-        ModelAluno alunoa = new ModelAluno();
-        boolean veri = false;
-        for(ModelAluno alun : alunos){
-            if (alun.getId() == alunoid){
-                veri = true;
-                alun.setIdTurma(id);
-                alunoa = alun;
-            }
-        }
-        if (veri){
-            return alunoRepository.save(alunoa);
-        }
-        else {
-            return null;
-        }
-    }
 }

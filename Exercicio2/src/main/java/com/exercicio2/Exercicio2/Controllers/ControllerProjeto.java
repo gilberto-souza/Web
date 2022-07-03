@@ -1,8 +1,7 @@
 package com.exercicio2.Exercicio2.Controllers;
 
-import com.exercicio2.Exercicio2.Models.ModelAluno;
+import com.exercicio2.Exercicio2.Models.ModelProfessor;
 import com.exercicio2.Exercicio2.Models.ModelProjeto;
-import com.exercicio2.Exercicio2.Models.ModelTurma;
 import com.exercicio2.Exercicio2.Repository.RepositoryProfessor;
 import com.exercicio2.Exercicio2.Repository.RepositoryProjeto;
 import com.exercicio2.Exercicio2.Repository.RepositoryTurma;
@@ -24,9 +23,6 @@ public class ControllerProjeto {
     private RepositoryProjeto projetoRepository;
 
     @Autowired
-    private RepositoryTurma alunoRepository;
-
-    @Autowired
     private RepositoryProfessor professorRepository;
 
     @GetMapping
@@ -44,8 +40,44 @@ public class ControllerProjeto {
     @PostMapping
     @ApiOperation(value = "Adicionar um Projeto")
     public ModelProjeto createProjeto(@RequestBody ModelProjeto projeto) {
-        return projetoRepository.save(projeto);
+        List<ModelProjeto> projetoList = projetoRepository.findAll();
+        boolean veri = true;
+        for(ModelProjeto proj : projetoList){
+            if (proj.getMatriculaProf() == projeto.getMatriculaProf() ){
+                veri = false;
+            }
+        }
+        if (veri){
+            return projetoRepository.save(projeto);
+        }
+        else {
+            return null;
+        }
     }
 
-    
+    @DeleteMapping("/{id}")
+    @ApiOperation(value = "Exclui um aluno a partir do seu id")
+    public void deleteProjeto(@PathVariable Long id) {
+        projetoRepository.delete(projetoRepository.findById(id).get());
+    }
+
+    @PutMapping("/{id}")
+    @ApiOperation(value = "Atualiza um aluno a partir do seu identificador")
+    public ModelProjeto updateAluno(@PathVariable("id") Long id, @RequestBody ModelProjeto projeto) {
+        List<ModelProjeto> projetos = projetoRepository.findAll();
+        boolean veri = true;
+        for(ModelProjeto proj : projetos){
+            if (proj.getId() == projeto.getId()){
+                veri = true;
+                projeto.setMatriculaProf(proj.getMatriculaProf());
+                projeto.setId(proj.getId());
+            }
+        }
+        if (veri){
+            return projetoRepository.save(projeto);
+        }
+        else {
+            return null;
+        }
+    }   
 }
