@@ -4,7 +4,6 @@ import com.exercicio2.Exercicio2.Models.ModelProfessor;
 import com.exercicio2.Exercicio2.Models.ModelProjeto;
 import com.exercicio2.Exercicio2.Repository.RepositoryProfessor;
 import com.exercicio2.Exercicio2.Repository.RepositoryProjeto;
-import com.exercicio2.Exercicio2.Repository.RepositoryTurma;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
