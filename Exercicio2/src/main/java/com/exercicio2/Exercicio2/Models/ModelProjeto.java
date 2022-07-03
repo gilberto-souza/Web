@@ -26,12 +26,14 @@ public class ModelProjeto {
     private String nome;
 
     @Column(name = "Descricao")
-    private String email;
+    private String descricao;
 
     @Column(name = "matriculaProf")
     private Long matriculaProf;
 
-    public ModelProjeto(Long matriculaProf) {
+    public ModelProjeto(String nome, String descricao, Long matriculaProf) {
+        this.nome = nome;
+        this.descricao = descricao;
         this.matriculaProf = matriculaProf;
     }
 }

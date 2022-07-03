@@ -31,13 +31,17 @@ public class ModelAluno {
     @Column(name = "matricula")
     private Long matricula;
 
-    @Column(name = "idTurma")
-    private Long idTurma;
+    @Column(name = "idProjeto")
+    private Long idProjeto;
 
-    public ModelAluno(String nome, String email,long matricula,long idTurma) {
+    @Column(name = "nivel")
+    private String nivel;
+
+    public ModelAluno(String nome, String email,long matricula,long idProjeto, String nivel) {
         this.nome = nome;
         this.email = email;
         this.matricula = matricula;
-        this.idTurma = idTurma;
+        this.idProjeto = idProjeto;
+        this.nivel = nivel;
     }
 }
