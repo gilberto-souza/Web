@@ -1,4 +1,4 @@
-package com.exercicio2.Exercicio2.Configuration;
+package com.exercicio2.Exercicio2.configuration;
 
 
 

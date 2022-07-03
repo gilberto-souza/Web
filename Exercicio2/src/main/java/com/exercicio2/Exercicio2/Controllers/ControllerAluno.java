@@ -1,17 +1,22 @@
-package com.exercicio2.Exercicio2.Controllers;
+package com.exercicio2.Exercicio2.controllers;
 
-import com.exercicio2.Exercicio2.Models.ModelAluno;
-import com.exercicio2.Exercicio2.Repository.RepositoryAluno;
+import java.util.List;
+
+import com.exercicio2.Exercicio2.models.ModelAluno;
+import com.exercicio2.Exercicio2.repository.RepositoryAluno;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-
-import java.util.*;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
