@@ -62,21 +62,18 @@ public class ControllerProjeto {
     }
 
     @PutMapping("/{id}")
-    @ApiOperation(value = "Atualiza um aluno a partir do seu identificador")
-    public ModelProjeto updateAluno(@PathVariable("id") Long id, @RequestBody ModelProjeto projeto) {
-        List<ModelProjeto> projetos = projetoRepository.findAll();
+    @ApiOperation(value = "Atualiza um projeto a partir do seu identificador")
+    public ModelProjeto updateProjeto(@PathVariable("id") Long id, @RequestBody ModelProjeto projeto) {
+        List<ModelProjeto> projetos = projetoRepository.findAll();    
         boolean veri = true;
         for(ModelProjeto proj : projetos){
-            if (proj.getId() == projeto.getId()){
-                veri = true;
-                projeto.setMatriculaProf(proj.getMatriculaProf());
-                projeto.setId(proj.getId());
+            if (proj.getMatriculaProf()==projeto.getMatriculaProf()){
+                veri = false;
             }
         }
-        if (veri){
+        if(veri){
             return projetoRepository.save(projeto);
-        }
-        else {
+        }else{
             return null;
         }
     }   
